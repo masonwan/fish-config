@@ -1,13 +1,10 @@
 function d -d 'Trash'
-  if type trash-put > /dev/null
+  if type -q trash-put > /dev/null
     set_color $yellow
     printf 'Trashing file \"%s\"\n' $argv
     set_color normal
     trash-put $argv
-  else if type trash > /dev/null
-    set_color $yellow
-    printf 'Trashing file \"%s\"\n' $argv
-    set_color normal
+  else if type -q trash > /dev/null
     trash -av $argv
   else
     log warn 'No trash program is available'
