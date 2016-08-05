@@ -11,12 +11,7 @@ function git-list-unstaged-files
 end
 
 function gl -d 'Git show log'
-	set output (git dag | head -1)
-	if test -z output
-		git log --oneline
-	else
-		git dag
-	end
+	git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 end
 
 alias current-branch 'git rev-parse --abbrev-ref HEAD'
