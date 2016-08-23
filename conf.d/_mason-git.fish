@@ -1,6 +1,7 @@
 alias gs 'git status -s'
 alias gp 'git pull'
-alias gb 'git branch --all -vv'
+alias gb 'git branch --color --all -vv'
+alias gr 'git remote -vv'
 alias gc 'git checkout'
 alias gd 'git diff'
 alias gf 'git fetch'
