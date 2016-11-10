@@ -22,6 +22,10 @@ function check-last -d "Run less on the latest matching file"
   less $file
 end
 
+function color-test -d 'Print 24-bit colors on the screen'
+  curl -s https://raw.githubusercontent.com/gnachman/iTerm2/master/tests/24-bit-color.sh | bash
+end
+
 function e -d 'Start the vim with proper permission'
   if test -f $argv
     if test -w $argv
