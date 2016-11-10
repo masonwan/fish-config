@@ -27,8 +27,8 @@ function color-test -d 'Print 24-bit colors on the screen'
 end
 
 function e -d 'Start the vim with proper permission'
-  if test -f $argv
-    if test -w $argv
+  if test -f $argv # Is a file?
+    if test -w $argv # Is writable?
       vim $argv
     else
       sudo vim $argv
