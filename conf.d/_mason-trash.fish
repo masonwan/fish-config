@@ -11,3 +11,7 @@ function d -d 'Trash'
     rm -ri $argv
   end
 end
+
+function dddd -d 'Remove directory without prompt'
+  rm -rf $argv
+end
