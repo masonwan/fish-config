@@ -30,17 +30,17 @@ function log -d 'Print message with color'
 
   if [ $argv[1] = 'error' ]
     set_color $red
-    printf $argv[2..-1]
+    printf $argv[2..-1]'\n'
     set_color normal
   else if [ $argv[1] = 'warn' ]
     set_color $yellow
-    printf $argv[2..-1]
+    printf $argv[2..-1]'\n'
     set_color normal
   else if [ $argv[1] = 'info' ]
       set_color $green
-      printf $argv[2..-1]
+      printf $argv[2..-1]'\n'
       set_color normal
   else
-    printf $argv
+    printf $argv'\n'
   end
 end
