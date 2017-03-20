@@ -5,7 +5,7 @@ alias disk-space 'df -h'
 alias ipinfo 'curl ipinfo.io'
 
 function find-string -d 'Find string in all files under current directory. http://explainshell.com/explain?cmd=grep+-rnw+.+-H+-e+%24argv '
-  grep -rnwi . -H -e $argv
+  grep -rni * -e $argv
 end
 
 function does-exist
