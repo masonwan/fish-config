@@ -9,7 +9,7 @@ function find-string -d 'Find string in all files under current directory. http:
 end
 
 function does-exist
-  return (type $argv > /dev/null)
+  return (type -q $argv > /dev/null)
 end
 
 function last-of -d "Find the latest matching file"
