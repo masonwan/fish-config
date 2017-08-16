@@ -3,7 +3,7 @@ alias gp 'git pull'
 alias gb 'git branch --color --all -vv'
 alias gr 'git remote -vv'
 alias gc 'git checkout'
-alias gd 'git diff'
+alias gd 'git diff --cached'
 alias gf 'git fetch'
 alias gclean 'git clean -df; and git checkout -- .'
 
