@@ -16,6 +16,10 @@ function gl -d 'Git show log'
 	git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 end
 
+function gll -d 'Git show more log'
+	git log --reverse --pretty='# %s%n%b'
+end
+
 alias current-branch 'git rev-parse --abbrev-ref HEAD'
 alias all-branches 'git branch | cut -c 3-'
 
