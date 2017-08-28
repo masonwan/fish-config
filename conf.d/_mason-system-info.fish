@@ -7,3 +7,8 @@ end
 function open-file-info -d 'Print the number of the open file descripters for each process'
   lsof -n | awk '{print $1 " " $2}' | uniq -c | sort -n
 end
+
+function show-proc -d 'Print the detail of a process'
+  # https://explainshell.com/explain?cmd=ps+auxww+123
+  ps auxww $argv
+end
