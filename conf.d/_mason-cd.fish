@@ -28,7 +28,11 @@ alias ..... 'g ../../../..'
 
 # See
 function s -d 'List files in details'
-  ls -AFlh $argv
+  if type -q exa;
+		exa -la $argv
+	else;
+		ls -AFlh $argv
+	end
 end
 function st -d 'List files ordered from oldest to newest'
   s -tr
