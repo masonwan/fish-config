@@ -5,7 +5,7 @@ function d -d 'Trash'
     set_color normal
     trash-put $argv
   else if type -q trash > /dev/null
-    trash -av $argv
+    trash -v $argv
   else
     log warn 'No trash program is available'
     rm -ri $argv
