@@ -29,7 +29,7 @@ alias ..... 'g ../../../..'
 # See
 function s -d 'List files in details'
   if type -q exa;
-		exa -la $argv
+		exa -lag $argv
 	else;
 		ls -AFlh $argv
 	end
