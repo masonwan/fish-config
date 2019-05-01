@@ -14,7 +14,7 @@ function app-update --description 'Update with Homebrew and Nodejs'
   if type -q brew
     log info 'Updating Homebrew modules...'
     brew update
-    brew upgrade --cleanup
+    brew upgrade
     brew cleanup
   end
 
