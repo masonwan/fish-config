@@ -1,10 +1,10 @@
 # Go
 function g -d 'Change directory and look up'
   set is_okay true
-  if test -z $argv
+  if test -z $argv # if no argument
     cd -
   else
-    if test -e $argv
+    if test -e $argv # if the file exists
       cd $argv
     else
       set is_okay false
