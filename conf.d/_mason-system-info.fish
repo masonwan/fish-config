@@ -12,3 +12,7 @@ function show-proc -d 'Print the detail of a process'
   # https://explainshell.com/explain?cmd=ps+auxww+123
   ps auxww $argv
 end
+
+function list-block-devices -d 'List all block devices'
+  lsblk
+end
