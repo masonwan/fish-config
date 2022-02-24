@@ -33,4 +33,10 @@ function app-update --description 'Update with Homebrew and Nodejs'
     log info 'Updating fisherman modules...'
     fisher update
   end
+
+  if type -q nvm >/dev/null
+    log info 'Updating Node.js...'
+    nvm list-remote latest
+    nvm install latest
+  end
 end
