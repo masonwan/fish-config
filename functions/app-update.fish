@@ -5,12 +5,14 @@ function app-update --description 'Update with Homebrew and Nodejs'
     fisher update
   end
 
-  if type -q apt
-    log info 'Updating Advanced Package Tool (APT) packages...'
-    sudo apt update
-    sudo apt dist-upgrade -y
-    sudo apt upgrade -y
-    sudo apt autoremove -y
+  if test (uname) = 'Linux' # `apt` is available in MacOS
+    if type -q apt
+      log info 'Updating Advanced Package Tool (APT) packages...'
+      sudo apt update
+      sudo apt dist-upgrade -y
+      sudo apt upgrade -y
+      sudo apt autoremove -y
+    end
   end
 
   if type -q brew
