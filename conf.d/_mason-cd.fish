@@ -27,6 +27,10 @@ alias .... 'g ../../..'
 alias ..... 'g ../../../..'
 
 # See
+
+## Let ls (exa) to use the ISO date and time format. See https://www.gnu.org/software/coreutils/manual/html_node/Formatting-file-timestamps.html
+set -gx TIME_STYLE long-iso
+
 function s -d 'List files in details'
   if type -q exa;
 		exa -lag $argv
