@@ -1,22 +1,18 @@
 # Go
 function g -d 'Change directory and look up'
-  set is_okay true
   if test -z $argv # if no argument
     cd -
+  else if not test -e $argv # If the file does not exist
+    set_color $red
+    echo ''
+    cd $argv
+    echo ''
+    set_color normal
   else
-    if test -e $argv # if the file exists
-      cd $argv
-    else
-      set is_okay false
-      set_color $red
-      echo 'Cannot find "'$argv'"'
-      set_color normal
-    end
+    cd $argv
   end
 
-  if eval $is_okay
-    ls -AF .
-  end
+  ls -AF .
 end
 alias gh 'g $HOME'
 alias gconfig 'g $HOME/.config/fish/'
