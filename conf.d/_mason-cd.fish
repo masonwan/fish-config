@@ -33,10 +33,10 @@ set -gx TIME_STYLE long-iso
 
 function s -d 'List files in details'
   if type -q exa;
-		exa -lag $argv
-	else;
-		ls -AFlh $argv
-	end
+    exa -lag $argv
+  else;
+    ls -AFlh $argv
+  end
 end
 function st -d 'List files ordered from oldest to newest'
   s -tr
