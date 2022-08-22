@@ -1,4 +1,4 @@
-function app-update --description 'Update with Homebrew and Nodejs'
+function app-update -d 'Update apps'
 
   if type -q fisher >/dev/null
     log info 'Updating fisherman modules...'
