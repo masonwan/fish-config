@@ -3,11 +3,10 @@ import { promisify } from 'util'
 
 const exec = promisify(child_process.exec)
 
-const command = 'nvm list'
 const options = {
   shell: process.env.SHELL,
 }
-exec(command, options)
+exec('nvm list', options)
   .then(({ stdout }) => {
     const removingVersions = []
     stdout.split('\n').forEach((line) => {
