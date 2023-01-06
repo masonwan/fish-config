@@ -26,6 +26,8 @@ function app-update -d 'Update apps'
     log info 'Upgrading Node.js...'
     nvm list-remote latest
     nvm install latest
+    
+    log info 'Removing the older Node.js versions...'
     node ~/.config/fish/conf.d/_mason-remove-old-node-versions.mjs
   end
 
