@@ -22,9 +22,9 @@ exec('nvm list', options)
 
     const promises = removingVersions
       .map((version) => {
+        console.log(`Removing ${version}...`)
         const removingCommand = `nvm uninstall ${version}`
         return exec(removingCommand, options)
-          .then(() => console.log(`${version} is removed`))
           .catch((err) => {
             console.error(`Failed to remove ${version}: `, err)
           })
