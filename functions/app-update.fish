@@ -24,7 +24,7 @@ function app-update -d 'Update apps'
 
   if type -q nvm >/dev/null
     log info 'Upgrading Node.js...'
-    nvm list-remote latest
+    nvm list-remote latest > /dev/null
     nvm install latest
     
     log info 'Removing the older Node.js versions...'
