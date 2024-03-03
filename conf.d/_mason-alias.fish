@@ -27,14 +27,22 @@ function color-test -d 'Print 24-bit colors on the screen'
 end
 
 function e -d 'Start the vim with proper permission'
-  if test -f $argv # Is a file?
-    if test -w $argv # Is writable?
-      vim $argv
+  if command -q micro
+    set editor micro
+  else if command -q vim
+    set editor vim
+  else
+    log error 'The system does not install micro or vim'
+  end
+
+  if [ -f $argv ] # Is a file?
+    if [ -w $argv ] # Is writable?
+      $editor $argv
     else
-      sudo vim $argv
+      sudo $editor $argv
     end
   else
-    vim $argv
+    log error 'The target is not a file'
   end
 end
 
