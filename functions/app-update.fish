@@ -2,7 +2,7 @@ function app-update -d 'Update apps'
 
   if type -q fisher >/dev/null
     log info 'List of Fisher plugins:'
-    fisher ls
+    fisher ls | sort
     log info 'Updating Fish shell plugins...'
     fisher update > /dev/null
   end
