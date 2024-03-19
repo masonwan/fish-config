@@ -13,7 +13,7 @@ function app-update -d 'Update apps'
       log info 'Updating Advanced Package Tool (APT) packages...'
       sudo apt update
       sudo apt dist-upgrade -y
-      sudo apt upgrade -y
+      sudo apt upgrade -y --allow-downgrades
       sudo apt autoremove -y
     end
   end
