@@ -1,8 +1,10 @@
 function app-update -d 'Update apps'
 
   if type -q fisher >/dev/null
+    log info 'List of Fisher plugins:'
+    fisher ls
     log info 'Updating Fish shell plugins...'
-    fisher update
+    fisher update > /dev/null
   end
 
   # `/usr/bin/apt` is "annotation processing tool" on MacOS. So here it checks the platform first.
@@ -34,7 +36,7 @@ function app-update -d 'Update apps'
 
   if type -q npm
     log info 'Updating NPM modules...'
-    npm -g install npm
-    npm -g update
+    npm -g install npm > /dev/null
+    npm -g update > /dev/null
   end
 end
