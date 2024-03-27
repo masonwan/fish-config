@@ -14,13 +14,7 @@ function g -d 'Change directory and look up'
 
   ls -AF .
 end
-alias gh 'g $HOME'
-alias gconfig 'g $HOME/.config/fish/'
-alias grepo 'g $HOME/repos/'
-alias .. 'g ..'
-alias ... 'g ../..'
-alias .... 'g ../../..'
-alias ..... 'g ../../../..'
+abbr --add gh 'g $HOME'
 
 # See
 
@@ -33,9 +27,6 @@ function s -d 'List files in details'
   else;
     ls -AFlh $argv
   end
-end
-function st -d 'List files ordered from oldest to newest'
-  s -tr
 end
 function sf -d 'List files with filter'
   s | grep $argv
