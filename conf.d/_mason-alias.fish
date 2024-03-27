@@ -27,23 +27,30 @@ function color-test -d 'Print 24-bit colors on the screen'
 end
 
 function e -d 'Start the vim with proper permission'
-  if command -q micro
-    set editor micro
-  else if command -q vim
-    set editor vim
-  else
-    log error 'The system does not install micro or vim'
+  set -l editors \
+    nvim \
+    vim \
+    vi \
+    micro \
+    nano
+  
+  for editor in $editors
+    if command -q $editor
+      break
+    end
   end
 
-  if [ -f $argv ] # Is a file?
-    if [ -w $argv ] # Is writable?
-      $editor $argv
-    else
-      sudo $editor $argv
-    end
-  else
-    log error 'The target is not a file'
-  end
+  $editor $argv
+
+  # if [ -f $argv ] # Is a file?
+  #   if [ -w $argv ] # Is writable?
+  #     $editor $argv
+  #   else
+  #     sudo $editor $argv
+  #   end
+  # else
+  #   log error 'The target is not a file'
+  # end
 end
 
 function v -d 'View the files'
