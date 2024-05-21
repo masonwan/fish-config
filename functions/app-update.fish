@@ -9,11 +9,13 @@ function app-update -d 'Update apps'
 
   # `/usr/bin/apt` is "annotation processing tool" on MacOS. So here it checks the platform first.
   if test (uname) = 'Linux'
-    if type -q nala
-      log info 'Updating Advanced Package Tool (APT) packages with nala...'
-      sudo nala upgrade -y
-      sudo apt autoremove -y
-    else if type -q apt
+    # TODO: Nala works badly with server which requires certification, comment it out now.
+    # if type -q nala
+    #   log info 'Updating Advanced Package Tool (APT) packages with nala...'
+    #   sudo nala upgrade -y
+    #   sudo apt autoremove -y
+    # else if type -q apt
+    if type -q apt
       log info 'Updating Advanced Package Tool (APT) packages...'
       sudo apt update
       sudo apt dist-upgrade -y
