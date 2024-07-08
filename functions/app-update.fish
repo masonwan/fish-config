@@ -22,6 +22,11 @@ function app-update -d 'Update apps'
       sudo apt upgrade -y --allow-downgrades
       sudo apt autoremove -y
     end
+
+    if type -q flatpak
+      log info 'Updating flatpak packages...'
+      sudo flatpak update
+    end
   end
 
   if type -q brew
