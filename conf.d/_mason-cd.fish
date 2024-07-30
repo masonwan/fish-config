@@ -18,12 +18,12 @@ abbr --add gh 'g $HOME'
 
 # See
 
-## Let ls (exa) to use the ISO date and time format. See https://www.gnu.org/software/coreutils/manual/html_node/Formatting-file-timestamps.html
+## Let ls (eza) to use the ISO date and time format. See https://www.gnu.org/software/coreutils/manual/html_node/Formatting-file-timestamps.html
 set -gx TIME_STYLE long-iso
 
 function s -d 'List files in details'
-  if type -q exa;
-    exa -lag $argv
+  if type -q eza;
+    eza -lag $argv
   else;
     ls -AFlh $argv
   end
