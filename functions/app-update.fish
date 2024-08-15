@@ -25,7 +25,7 @@ function app-update -d 'Update apps'
 
     if type -q flatpak
       log info 'Updating flatpak packages...'
-      sudo flatpak update
+      sudo flatpak update -y
     end
   end
 
