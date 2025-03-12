@@ -28,10 +28,10 @@ end
 
 function e -d 'Start the vim with proper permission'
   set -l editors \
+    hx \
     nvim \
     vim \
     vi \
-    micro \
     nano
   
   for editor in $editors
