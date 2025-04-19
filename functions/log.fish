@@ -24,7 +24,7 @@ function log -d 'Print message with colors from http://clrs.cc/'
     set_color normal
   else
     set_color --bold normal
-    printf $argv'\n'
+    echo $argv[1..-1]
     set_color normal
   end
 end
