@@ -6,7 +6,9 @@ function log -d 'Print message with colors from http://clrs.cc/'
   end
 
   if test $argv_count -eq 1
+    set_color --bold white
     echo $argv
+    set_color normal
     return
   end
 
@@ -23,7 +25,7 @@ function log -d 'Print message with colors from http://clrs.cc/'
     printf $argv[2..-1]'\n'
     set_color normal
   else
-    set_color --bold normal
+    set_color --bold white
     echo $argv[1..-1]
     set_color normal
   end
