@@ -19,10 +19,12 @@ function log -d 'Print message with colors from http://clrs.cc/'
     printf $argv[2..-1]'\n'
     set_color normal
   else if [ $argv[1] = 'info' ]
-      set_color --bold 2ECC40
-      printf $argv[2..-1]'\n'
-      set_color normal
+    set_color --bold 2ECC40
+    printf $argv[2..-1]'\n'
+    set_color normal
   else
+    set_color --bold normal
     printf $argv'\n'
+    set_color normal
   end
 end
