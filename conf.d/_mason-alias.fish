@@ -29,24 +29,18 @@ function e -d 'Start the vim with proper permission'
     vim \
     vi \
     nano
-  
+
   for editor in $editors
     if command -q $editor
       break
     end
   end
 
-  $editor $argv
-
-  # if [ -f $argv ] # Is a file?
-  #   if [ -w $argv ] # Is writable?
-  #     $editor $argv
-  #   else
-  #     sudo $editor $argv
-  #   end
-  # else
-  #   log error 'The target is not a file'
-  # end
+  if stat -c '%U' $argv | grep -q '^root$' # If the file is owned by root
+    sudo $editor $argv
+  else
+    $editor $argv
+  end
 end
 
 function v -d 'View the files'
