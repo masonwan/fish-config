@@ -8,10 +8,6 @@ function find-string -d 'Find string in all files under current directory. http:
   grep -rni * -e $argv
 end
 
-function does-exist
-  return (type -q $argv > /dev/null)
-end
-
 function last-of -d "Find the latest matching file"
   ls -tr | grep $argv | tail -1
 end
