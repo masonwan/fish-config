@@ -44,5 +44,5 @@ function e -d 'Start the vim with proper permission'
 end
 
 function v -d 'View the files'
-  less -Ri $argv
+  less -MRi $argv
 end
