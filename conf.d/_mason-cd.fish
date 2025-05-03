@@ -28,6 +28,9 @@ function s -d 'List files in details'
     ls -AFlh $argv
   end
 end
+function st -d 'List files a tree style'
+  s --tree --level 3 $argv
+end
 function sf -d 'List files with filter'
   s | grep $argv
 end
