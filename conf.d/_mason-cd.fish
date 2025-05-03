@@ -22,9 +22,9 @@ abbr --add gh 'g $HOME'
 set -gx TIME_STYLE long-iso
 
 function s -d 'List files in details'
-  if type -q eza;
+  if type -q eza
     eza --long --all --color=always $argv
-  else;
+  else
     ls -AFlh $argv
   end
 end
@@ -32,5 +32,5 @@ function st -d 'List files a tree style'
   s --tree --level 3 $argv
 end
 function sf -d 'List files with filter'
-  s | grep $argv
+  s | rg $argv
 end

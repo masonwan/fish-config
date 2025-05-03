@@ -24,6 +24,7 @@ end
 
 function e -d 'Start the vim with proper permission'
   set -l editors \
+    /usr/bin/editor \
     hx \
     nvim \
     vim \
