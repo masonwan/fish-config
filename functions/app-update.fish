@@ -17,10 +17,9 @@ function app-update -d 'Update apps'
     # else if type -q apt
     if type -q apt
       log info 'Updating Advanced Package Tool (APT) packages...'
-      sudo apt update
-      sudo apt dist-upgrade -y
-      sudo apt upgrade -y --allow-downgrades
-      sudo apt autoremove -y
+      sudo apt update > /dev/null 2>&1
+      sudo apt full-upgrade -y --allow-downgrades
+      sudo apt autopurge -y
     end
 
     if type -q flatpak
