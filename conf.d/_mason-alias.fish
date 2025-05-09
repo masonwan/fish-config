@@ -38,7 +38,9 @@ function e -d 'Start the vim with proper permission'
   end
 
   if stat -c '%U' $argv | grep -q '^root$' # If the file is owned by root
-    sudo $editor $argv
+    log warn 'This file is owned by root, opening with sudo'
+    sleep 1
+    sudoedit $argv
   else
     $editor $argv
   end
