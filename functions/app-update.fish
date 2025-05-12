@@ -9,7 +9,6 @@ function app-update -d 'Update apps'
 
   # `/usr/bin/apt` is "annotation processing tool" on MacOS. So here it checks the platform first.
   if test (uname) = 'Linux'
-    # TODO: Nala works badly with server which requires certification, comment it out now.
     if type -q nala
       log info 'Updating Advanced Package Tool (APT) packages with nala...'
       sudo nala full-upgrade -y

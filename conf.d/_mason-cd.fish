@@ -23,7 +23,7 @@ set -gx TIME_STYLE long-iso
 
 function s -d 'List files in details'
   if type -q eza
-    eza --long --all --color=always $argv
+    eza --links --long --all --color=always $argv
   else
     ls -AFlh $argv
   end
