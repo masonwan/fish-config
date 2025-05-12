@@ -4,6 +4,7 @@ alias pf 'ps -ef | rg'
 
 alias ipinfo 'curl ipinfo.io | jq'
 alias ipinfo2 'curl api.ip2location.io | jq'
+alias ssh-speed-test 'dd if=/dev/zero bs=1G count=1 | ssh home.masonwan.com 'cat > /dev/null''
 
 function find-string -d 'Find string in all files under current directory. http://explainshell.com/explain?cmd=grep+-rnw+.+-H+-e+%24argv '
   grep -rni * -e $argv
