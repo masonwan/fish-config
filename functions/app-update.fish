@@ -4,17 +4,16 @@ function app-update -d 'Update apps'
     else if type -q fdfind
         set command fdfind
     else
-        log error "Cannot find fd or fdfind."
+        log error "Cannot find `fd` or `fdfind`."
         exit 1
     end
 
     set -l files ($command ".\.fish" ~/repos/server-setup/updates/)
 
     for file in $files
-        log info "Runnning $file..."
+        log info "Running (string replace ~/repos/server-setup/updates/ '' $file)..."
         fish $file &
     end
 
-    log info "Waiting for all update scripts to finish..."
     wait fish
 end
