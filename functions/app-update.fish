@@ -1,50 +1,22 @@
 function app-update -d 'Update apps'
-
-  if type -q fisher >/dev/null
-    log info 'List of Fisher plugins:'
-    fisher ls | sort
-    log info 'Updating Fish shell plugins...'
-    fisher update > /dev/null
+  if type -q fd
+    set command "fd"
+    log info "Using fd as the command."
+  else if type -q fdfind
+    set command "fdfind"
+    log info "Using fdfind as the command."
+  else
+    log error "Cannot find fd or fdfind."
+    exit 1
   end
 
-  # `/usr/bin/apt` is "annotation processing tool" on MacOS. So here it checks the platform first.
-  if test (uname) = 'Linux'
-    if type -q nala
-      log info 'Updating Advanced Package Tool (APT) packages with nala...'
-      sudo nala full-upgrade -y
-      sudo apt autopurge -y
-    else if type -q apt
-      log info 'Updating Advanced Package Tool (APT) packages...'
-      sudo apt update > /dev/null 2>&1
-      sudo apt full-upgrade -y --allow-downgrades
-      sudo apt autopurge -y
-    end
+  set -l files ($command ".\.fish" ~/repos/server-setup/updates/)
 
-    if type -q flatpak
-      log info 'Updating flatpak packages...'
-      sudo flatpak update -y
-    end
+  for file in $files
+    log info "Runnning $file..."
+    fish $file &
   end
 
-  if type -q brew
-    log info 'Updating Homebrew modules...'
-    brew update
-    brew upgrade
-    brew autoremove
-  end
-
-  if type -q nvm
-    log info 'Upgrading Node.js...'
-    nvm list-remote latest > /dev/null
-    nvm install latest
-    
-    log info 'Removing the older Node.js versions...'
-    node ~/.config/fish/conf.d/_mason-remove-old-node-versions.mjs
-  end
-
-  if type -q npm
-    log info 'Updating NPM modules...'
-    npm -g install npm > /dev/null
-    npm -g update > /dev/null
-  end
+  log info "Waiting for all update scripts to finish..."
+  wait fish
 end
