@@ -11,7 +11,7 @@ function app-update -d 'Update apps'
     set -l files ($command ".\.fish" ~/repos/server-setup/updates/)
 
     for file in $files
-        log info "Running (string replace ~/repos/server-setup/updates/ '' $file)..."
+        log info "Running "(string replace ~/repos/server-setup/updates/ '' $file)"..."
         fish $file &
     end
 
