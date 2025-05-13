@@ -5,7 +5,7 @@ function app-update -d 'Update apps'
         set command fdfind
     else
         log error "Cannot find `fd` or `fdfind`."
-        exit 1
+        return 1
     end
 
     set -l files ($command ".\.fish" ~/repos/server-setup/updates/)
