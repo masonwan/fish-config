@@ -1,10 +1,8 @@
 function app-update -d 'Update apps'
     if type -q fd
         set command fd
-        log info "Using fd as the command."
     else if type -q fdfind
         set command fdfind
-        log info "Using fdfind as the command."
     else
         log error "Cannot find fd or fdfind."
         exit 1
