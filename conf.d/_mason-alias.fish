@@ -2,7 +2,7 @@ alias f 'find -L . -name'
 alias p 'ps -ef'
 alias pf 'ps -ef | rg'
 
-alias ipinfo 'curl ipinfo.io | jq'
+alias ipinfo 'curl -s ipinfo.io | jq'
 alias ipinfo2 'curl api.ip2location.io | jq'
 alias ssh-speed-test 'dd if=/dev/zero bs=1G count=1 | ssh home.masonwan.com 'cat > /dev/null''
 
