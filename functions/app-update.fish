@@ -12,8 +12,6 @@ function app-update -d 'Update apps'
 
     for file in $files
         log info "Running "(string replace ~/repos/server-setup/updates/ '' $file)"..."
-        fish $file &
+        fish $file
     end
-
-    wait fish
 end
