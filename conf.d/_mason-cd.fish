@@ -32,5 +32,5 @@ function st -d 'List files a tree style'
   s --tree --level 3 $argv
 end
 function sf -d 'List files with filter'
-  s | rg $argv
+  s | rg -i $argv
 end
