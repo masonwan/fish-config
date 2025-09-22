@@ -1,8 +1,8 @@
 function d --description 'Delete files. Use `trash-put` if available. Otherwise it will prompt to use `rm`.'
-  if type -q trash-put
+  if type -q trash-put # For Linux
     log warn "Trashing file '$argv'"
     trash-put $argv
-  else if type -q trash
+  else if type -q trash # For MacOS
     log warn "Trashing file '$argv'"
     trash $argv
   else
