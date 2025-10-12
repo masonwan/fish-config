@@ -12,7 +12,7 @@ function g -d 'Change directory and look up'
     cd $argv
   end
 
-  ls -AF .
+  list-files
 end
 abbr --add gh 'g $HOME'
 
@@ -21,12 +21,15 @@ abbr --add gh 'g $HOME'
 ## Let ls (eza) to use the ISO date and time format. See https://www.gnu.org/software/coreutils/manual/html_node/Formatting-file-timestamps.html
 set -gx TIME_STYLE long-iso
 
-function s -d 'List files in details'
+function list-files -d 'List files in details'
   if type -q eza
-    eza --classify --links --long --all --color=always $argv
+    eza --classify --links --all --color=always $argv
   else
-    ls -AFlh $argv
+    ls -AFh $argv
   end
+end
+function s -d 'List files in details'
+  list-files -l $argv
 end
 function st -d 'List files a tree style'
   s --tree --level 3 $argv
