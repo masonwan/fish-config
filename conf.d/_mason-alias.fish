@@ -6,7 +6,7 @@ alias ipinfo 'curl -s ipinfo.io | jq'
 alias ipinfo2 'curl api.ip2location.io | jq'
 alias ssh-speed-test "dd if=/dev/zero bs=1G count=1 | pv -s 1G | ssh mwan.dev 'cat > /dev/null'"
 abbr find-trashes "fdfind --hidden '^\._'"
-abbr trash-trashes "d (fdfind --hidden '^\._')"
+abbr trash-trashes "d (fdfind --hidden -E .Trash-1000 '^\._')"
 
 function find-string -d 'Find string in all files under current directory. http://explainshell.com/explain?cmd=grep+-rnw+.+-H+-e+%24argv '
   grep -rni * -e $argv
