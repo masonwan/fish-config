@@ -2,6 +2,7 @@ function e -d 'Start the vim with proper permission'
   set -l editors
   set -a editors /usr/bin/editor # Use update-alternatives, Debian's CLI version management.
   set -a editors hx # Helix
+  set -a editors helix # In CachyOS, `helix` instead of `hx`
   set -a editors nvim vim vi
   set -a editors nano
 
