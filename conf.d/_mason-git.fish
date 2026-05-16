@@ -13,7 +13,7 @@ function git-list-unstaged-files
 end
 
 function gl -d 'Git show log'
-  git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -10
+  git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit -10
 end
 
 function gll -d 'Git show more log'
