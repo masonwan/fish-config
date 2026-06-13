@@ -1,10 +1,13 @@
-alias f 'find -L . -name'
-alias p 'ps -ef'
-alias pf 'ps -ef | rg'
+abbr f 'find -L . -name'
+abbr p 'ps -ef'
+abbr pf 'ps -ef | rg'
 
-alias ipinfo 'curl -s ipinfo.io | jq'
-alias ipinfo2 'curl api.ip2location.io | jq'
-alias ssh-speed-test "dd if=/dev/zero bs=1G count=1 | pv -s 1G | ssh mwan.dev 'cat > /dev/null'"
+abbr ipinfo 'curl -s ipinfo.io | jq'
+abbr ipinfo2 'curl api.ip2location.io | jq'
+
+# Run network speed test against mwan.dev
+abbr ssh-speed-test "dd if=/dev/zero bs=1G count=1 | pv -s 1G | ssh mwan.dev 'cat > /dev/null'"
+
 abbr find-trashes "fdfind --hidden -E .Trash-1000 -E Trash '^\._'"
 abbr trash-trashes "fdfind --hidden -E .Trash-1000 -E Trash '^\._' -x fish -c 'd {}'"
 
