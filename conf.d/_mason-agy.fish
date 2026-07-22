@@ -1,2 +1,2 @@
-abbr ai 'agy --model "Gemini 3.5 Flash (Low)" --prompt'
-abbr aic 'agy --model "Gemini 3.5 Flash (Low)" --continue'
+abbr ai 'agy --model gemini-3.6-flash-low --prompt'
+abbr aic 'agy --model "Gemini 3.6 Flash (Low)" --continue'
