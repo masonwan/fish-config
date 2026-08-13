@@ -14,7 +14,7 @@ function g -d 'Change directory and look up'
 
   list-files
 end
-abbr --add gh 'g $HOME'
+abbr --add gohome 'g $HOME'
 
 # See
 
