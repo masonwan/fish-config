@@ -1,18 +1,16 @@
 # Go
 function g -d 'Change directory and look up'
-  if test -z $argv # if no argument
-    cd -
-  else if not test -e $argv # If the file does not exist
-    set_color $red
+  if test -z "$argv"
+    cd -; and list-files
+  else if not test -e "$argv"
+    set_color red
     echo ''
-    cd $argv
+    cd "$argv"
     echo ''
     set_color normal
   else
-    cd $argv
+    cd "$argv"; and list-files
   end
-
-  list-files
 end
 abbr --add gohome 'g $HOME'
 
