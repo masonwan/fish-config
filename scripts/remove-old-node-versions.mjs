@@ -32,5 +32,5 @@ exec('nvm list', options)
     return Promise.all(promises)
   })
   .catch((err) => {
-    console.error(`Failed to run '${command}': `, err)
+    console.error(`Failed to run 'nvm list': `, err)
   })
