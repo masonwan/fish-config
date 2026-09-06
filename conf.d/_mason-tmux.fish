@@ -2,20 +2,18 @@ alias tm tmux
 alias tmnew 'tmux new -s'
 
 function tmux-new-or-attach -d 'Create a session with given name or attach to the session'
-  set session_name $argv[1]
-  if [ -z $session_name ]
+  set -l session_name $argv[1]
+  if test -z "$session_name"
     log error 'The session name is required.'
     return 1
   end
-  tmux has-session -t $session_name 2>/dev/null
-  if [ $status -eq 0  ]
+
+  if tmux has-session -t "$session_name" 2>/dev/null
     log info "Attaching session '$session_name'..."
-    tmux attach -t $session_name
-  else if [ $status -eq 1  ]
-    log info "Creating session '$session_name'..."
-    tmux new -s $session_name
+    tmux attach -t "$session_name"
   else
-    log error "Unexpected status $status"
+    log info "Creating session '$session_name'..."
+    tmux new -s "$session_name"
   end
 end
 alias tma tmux-new-or-attach
