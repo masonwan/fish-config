@@ -7,14 +7,21 @@ function disk-benchmark -d 'Benchmark a give path for disk read/write speed'
 	set -l file $folder/testfile
 	log info "Writing file to $file..."
 
-	# Time the write speed, bypassing the OS cache for a true disk write test.
-	# Using a 1GiB file (1M block size * 1024 blocks).
-	time dd if=/dev/zero of=$file bs=1M count=1024 status=progress oflag=direct
+	# Time the write speed. Direct I/O and status flags are Linux/GNU-specific.
+	set -l dd_flags
+	if test (uname) = Linux
+		set dd_flags status=progress oflag=direct
+	end
+
+	time dd if=/dev/zero of=$file bs=1M count=1024 $dd_flags
 
 	log info "Reading file from $file..."
-	# Time the read speed, bypassing the OS cache for a true disk read test.
-	time dd if=$file of=/dev/null bs=1M status=progress iflag=direct
+	set -l dd_read_flags
+	if test (uname) = Linux
+		set dd_read_flags status=progress iflag=direct
+	end
+	time dd if=$file of=/dev/null bs=1M $dd_read_flags
 
 	log info "Deleting file at $file..."
-	rm $file
+	rm -f $file
 end

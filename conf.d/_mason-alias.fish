@@ -8,20 +8,25 @@ abbr ipinfo2 'curl api.ip2location.io | jq'
 # Run network speed test against mwan.dev
 abbr ssh-speed-test "dd if=/dev/zero bs=1G count=1 | pv -s 1G | ssh mwan.dev 'cat > /dev/null'"
 
-abbr find-trashes "fdfind --hidden -E .Trash-1000 -E Trash '^\._'"
-abbr trash-trashes "fdfind --hidden -E .Trash-1000 -E Trash '^\._' -x fish -c 'd {}'"
+# Universal fd binary alias (fd on macOS/BSD/Arch, fdfind on Debian/Ubuntu)
+if not type -q fd; and type -q fdfind
+  alias fd fdfind
+end
 
-function find-string -d 'Find string in all files under current directory. http://explainshell.com/explain?cmd=grep+-rnw+.+-H+-e+%24argv '
-  grep -rni * -e $argv
+abbr find-trashes "fd --hidden -E .Trash-1000 -E Trash '^\._'"
+abbr trash-trashes "fd --hidden -E .Trash-1000 -E Trash '^\._' -x fish -c 'd {}'"
+
+function find-string -d 'Find string in all files under current directory using ripgrep'
+  rg -i $argv
 end
 
 function last-of -d "Find the latest matching file"
-  ls -tr | grep $argv | tail -1
+  ls -tr | rg $argv | tail -1
 end
 
 function check-last -d "Run less on the latest matching file"
-  set file (last-of $argv)
-  log info 'Checking file:'$file
+  set -l file (last-of $argv)
+  log info "Checking file: $file"
   less $file
 end
 

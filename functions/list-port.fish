@@ -1,7 +1,7 @@
 function list-port -d 'List all listening TCP ports'
   set os (uname)
   if test $os = 'Darwin'
-    lsof -i -P -n | grep -i 'listen'
+    lsof -i -P -n | rg -i 'listen'
   else if test $os = 'Linux'
     sudo ss -tlpn
   else
